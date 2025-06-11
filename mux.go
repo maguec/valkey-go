@@ -86,7 +86,8 @@ func makeMux(dst string, option *ClientOption, dialFn dialFn) *mux {
 func newMux(dst string, option *ClientOption, init, dead wire, wireFn wireFn, wireNoBgFn wireFn) *mux {
 	var multiplex int
 	if option.PipelineMultiplex >= 0 {
-		multiplex = 1 << option.PipelineMultiplex
+		multiplex = 32
+		//multiplex = 1 << option.PipelineMultiplex
 	} else {
 		multiplex = 1
 	}
